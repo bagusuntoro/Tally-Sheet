@@ -49,6 +49,7 @@ class Note extends Migration
             'id_signature'      => [
                 'type'           => 'INT',
                 'constraint'     => '11',
+                'null' => TRUE,
             ],
 
           ]);

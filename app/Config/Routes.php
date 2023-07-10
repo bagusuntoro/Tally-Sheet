@@ -34,19 +34,23 @@ $routes->post('/api/register', 'Register::index');
 $routes->post('/api/login', 'Login::index');
 $routes->post('/api/me/', 'Me::index', ['filter' => 'auth']);
 
-// notes
-$routes->get('/api/note', 'NoteController::listNotes');
-$routes->get('/api/note/(.*)', 'NoteController::getNoteById/$1', ['filter' => 'auth']);
-$routes->post('/api/note', 'NoteController::createNote');
-$routes->put('/api/note/(.*)', 'NoteController::updateNote/$1', ['filter' => 'auth']);
-$routes->delete('/api/note/(.*)', 'NoteController::deleteNote/$1', ['filter' => 'auth']);
 
-// barang 
-$routes->get('/api/barang', 'BarangController::listBarang');
-$routes->get('/api/barang/(:num)', 'BarangController::getBarangById/$1');
-$routes->post('/api/barang', 'BarangController::createBarang');
-$routes->patch('/api/update-barang/(:num)', 'BarangController::updateBarang/$1');
-$routes->post('/api/delete-barang/(:num)', 'BarangController::deleteBarang/$1');
+$routes->group('api', ['filter' => 'cors'], function ($routes) {
+    // notes
+    $routes->get('list-note', 'NoteController::listNotes');
+    $routes->get('note/(.*)', 'NoteController::getNoteById/$1', ['filter' => 'auth']);
+    $routes->post('create-note', 'NoteController::createNote');
+    $routes->post('update-note/(.*)', 'NoteController::updateNote/$1', ['filter' => 'auth']);
+    $routes->post('delete-note/(.*)', 'NoteController::deleteNote/$1', ['filter' => 'auth']);
+    // barang 
+    $routes->get('barang', 'BarangController::listBarang');
+    $routes->get('barang/(:num)', 'BarangController::getBarangById/$1');
+    $routes->post('barang', 'BarangController::createBarang');
+    $routes->post('update-barang/(:num)', 'BarangController::updateBarang/$1');
+    $routes->post('delete-barang/(:num)', 'BarangController::deleteBarang/$1');
+});
+
+
 
 
 // tumpukan

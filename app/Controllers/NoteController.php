@@ -67,7 +67,7 @@ class NoteController extends ResourceController
             'no_truck' => 'required',
             'driver' => 'required',
             'telp' => 'required',
-            'id_signature' => 'required|numeric'
+            // 'id_signature' => 'numeric'
         ];
 
         $dataRequest = [
@@ -114,7 +114,7 @@ class NoteController extends ResourceController
             'no_truck' => 'required',
             'driver' => 'required',
             'telp' => 'required',
-            'id_signature' => 'required'
+            // 'id_signature' => 'required'
         ];
         $dataRequest = [
             'location' => $this->request->getVar('location'),
