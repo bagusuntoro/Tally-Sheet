@@ -22,7 +22,6 @@ class NoteModel extends Model
         'no_truck',
         'driver',
         'telp',
-        'id_signature'
     ];
 
     // Dates

@@ -13,6 +13,15 @@ class Register extends BaseController
     public function index()
     {
         $rules = [
+            'name' => [
+                'rules' => 'required|string'
+            ],
+            'telp' => [
+                'rules' => 'required|string'
+            ],
+            'nik' => [
+                'rules' => 'required|string'
+            ],
             'email' => [
                 'rules' => 'required|valid_email|is_unique[users.email]'
             ],
@@ -28,6 +37,9 @@ class Register extends BaseController
             $userModel = new UserModel;
 
             $userData = [
+                'name' => $this->request->getVar('name'),
+                'telp' => $this->request->getVar('telp'),
+                'nik' => $this->request->getVar('nik'),
                 'email' => $this->request->getVar('email'),
                 'password' => password_hash($this->request->getVar('password'), PASSWORD_BCRYPT)
             ];

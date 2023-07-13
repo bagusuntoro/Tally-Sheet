@@ -67,7 +67,6 @@ class NoteController extends ResourceController
             'no_truck' => 'required',
             'driver' => 'required',
             'telp' => 'required',
-            // 'id_signature' => 'numeric'
         ];
 
         $dataRequest = [
@@ -79,7 +78,6 @@ class NoteController extends ResourceController
             'no_truck' => $this->request->getVar('no_truck'),
             'driver' => $this->request->getVar('driver'),
             'telp' => $this->request->getVar('telp'),
-            'id_signature' => $this->request->getVar('id_signature'),
         ];
     
         if (!$this->validate($rules)) return $this->fail($this->validator->getErrors());
@@ -91,7 +89,8 @@ class NoteController extends ResourceController
                 'error' => null,
                 'messages' => [
                     'success' => 'data inserted'
-                ]
+                ],
+                'data' =>$dataResponse
             ];
             return $this->respondCreated($response);
         }
@@ -114,7 +113,6 @@ class NoteController extends ResourceController
             'no_truck' => 'required',
             'driver' => 'required',
             'telp' => 'required',
-            // 'id_signature' => 'required'
         ];
         $dataRequest = [
             'location' => $this->request->getVar('location'),
@@ -125,7 +123,6 @@ class NoteController extends ResourceController
             'no_truck' => $this->request->getVar('no_truck'),
             'driver' => $this->request->getVar('driver'),
             'telp' => $this->request->getVar('telp'),
-            'id_signature' => $this->request->getVar('id_signature'),
         ];
     
         if (!$this->validate($rules)) return $this->fail($this->validator->getErrors());

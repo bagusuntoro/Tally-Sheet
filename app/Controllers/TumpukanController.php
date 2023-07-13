@@ -31,34 +31,35 @@ class TumpukanController extends ResourceController
     public function createTumpukan()
     {
         helper(['form']);
-        $rules = [
-            'tumpukan_1' => 'numeric',
-            'tumpukan_2' => 'numeric',
-            'tumpukan_3' => 'numeric',
-            'tumpukan_4' => 'numeric',
-            'tumpukan_5' => 'numeric',
-            'tumpukan_6' => 'numeric',
-            'tumpukan_7' => 'numeric',
-            'tumpukan_8' => 'numeric',
-            'tumpukan_9' => 'numeric',
-            'tumpukan_10' => 'numeric',
-            'total' => 'numeric',
-            'id_barang' => 'numeric',
-        ];
+        // $rules = [
+        //     'tumpukan_1' => 'numeric',
+        //     'tumpukan_2' => 'numeric',
+        //     'tumpukan_3' => 'numeric',
+        //     'tumpukan_4' => 'numeric',
+        //     'tumpukan_5' => 'numeric',
+        //     'tumpukan_6' => 'numeric',
+        //     'tumpukan_7' => 'numeric',
+        //     'tumpukan_8' => 'numeric',
+        //     'tumpukan_9' => 'numeric',
+        //     'tumpukan_10' => 'numeric',
+        //     'total' => 'numeric',
+        //     'id_barang' => 'numeric',
+        // ];
 
         $dataRequest = [
             'tumpukan_1' => $this->request->getVar('tumpukan_1'),
             'tumpukan_2' => $this->request->getVar('tumpukan_2'),
-            'tumpukan_3' => $this->request->getVar('tumpukan_3'),
-            'tumpukan_4' => $this->request->getVar('tumpukan_4'),
-            'tumpukan_5' => $this->request->getVar('tumpukan_5'),
-            'tumpukan_6' => $this->request->getVar('tumpukan_6'),
-            'tumpukan_7' => $this->request->getVar('tumpukan_7'),
-            'tumpukan_8' => $this->request->getVar('tumpukan_8'),
-            'tumpukan_9' => $this->request->getVar('tumpukan_9'),
-            'tumpukan_10' => $this->request->getVar('tumpukan_10'),
+            // 'tumpukan_3' => $this->request->getVar('tumpukan_3'),
+            // 'tumpukan_4' => $this->request->getVar('tumpukan_4'),
+            // 'tumpukan_5' => $this->request->getVar('tumpukan_5'),
+            // 'tumpukan_6' => $this->request->getVar('tumpukan_6'),
+            // 'tumpukan_7' => $this->request->getVar('tumpukan_7'),
+            // 'tumpukan_8' => $this->request->getVar('tumpukan_8'),
+            // 'tumpukan_9' => $this->request->getVar('tumpukan_9'),
+            // 'tumpukan_10' => $this->request->getVar('tumpukan_10'),
             'total' => $this->request->getVar('total'),
             'id_barang' => $this->request->getVar('id_barang'),
+            // 'id_note' => $this->request->getVar('id_note'),
         ];
     
         // if (!$this->validate($rules)) return $this->fail($this->validator->getErrors());

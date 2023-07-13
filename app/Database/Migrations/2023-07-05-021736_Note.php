@@ -46,16 +46,9 @@ class Note extends Migration
                 'type'           => 'VARCHAR',
                 'constraint'     => '50',
             ],
-            'id_signature'      => [
-                'type'           => 'INT',
-                'constraint'     => '11',
-                'null' => TRUE,
-            ],
-
           ]);
           $this->forge->addKey('id', TRUE);
           $this->forge->createTable('notes');
-          $this->forge->addForeignKey('id_signature', 'signatures', 'id');
     }
 
     public function down()

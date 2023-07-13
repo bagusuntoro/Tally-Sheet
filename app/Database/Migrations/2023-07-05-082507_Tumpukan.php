@@ -81,7 +81,7 @@ class Tumpukan extends Migration
           ]);
           $this->forge->addKey('id', TRUE);
           $this->forge->createTable('tumpukans');
-          $this->forge->addForeignKey('id_note', 'id_notes', 'id');
+          $this->forge->addForeignKey('id_note', 'notes', 'id');
           $this->forge->addForeignKey('id_barang', 'barangs', 'id');
     }
 

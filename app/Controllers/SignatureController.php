@@ -34,11 +34,13 @@ class SignatureController extends ResourceController
      helper(['form']);
      $rules = [
          'name' => 'required|string',
-         'signature' => 'required|string'
+         'signature' => 'required|string',
+         'id_note' => 'required|numeric'
      ];
      $dataRequest = [
          'name' => $this->request->getVar('name'),
          'signature' => $this->request->getVar('signature'),
+         'id_note' => $this->request->getVar('id_note'),
      ];
  
      if (!$this->validate($rules)) return $this->fail($this->validator->getErrors());
@@ -59,6 +61,21 @@ class SignatureController extends ResourceController
          'error' => 'failed',
      ];
      return $this->respondCreated($response);
+    }
+
+
+    public function createTumpukan()
+    {
+        helper(['form']);
+        
+        $response = [
+            'status' => 201,
+            'error' => null,
+            'messages' => [
+                'success' => 'data inserted'
+            ]
+        ];
+        return $this->respondCreated($response);
     }
 
 }

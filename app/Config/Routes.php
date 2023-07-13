@@ -38,28 +38,29 @@ $routes->post('/api/me/', 'Me::index', ['filter' => 'auth']);
 $routes->group('api', ['filter' => 'cors'], function ($routes) {
     // notes
     $routes->get('list-note', 'NoteController::listNotes');
-    $routes->get('note/(.*)', 'NoteController::getNoteById/$1', ['filter' => 'auth']);
+    $routes->get('note/(.*)', 'NoteController::getNoteById/$1');
     $routes->post('create-note', 'NoteController::createNote');
-    $routes->post('update-note/(.*)', 'NoteController::updateNote/$1', ['filter' => 'auth']);
-    $routes->post('delete-note/(.*)', 'NoteController::deleteNote/$1', ['filter' => 'auth']);
+    $routes->post('update-note/(.*)', 'NoteController::updateNote/$1');
+    $routes->post('delete-note/(.*)', 'NoteController::deleteNote/$1');
     // barang 
     $routes->get('barang', 'BarangController::listBarang');
     $routes->get('barang/(:num)', 'BarangController::getBarangById/$1');
     $routes->post('barang', 'BarangController::createBarang');
     $routes->post('update-barang/(:num)', 'BarangController::updateBarang/$1');
     $routes->post('delete-barang/(:num)', 'BarangController::deleteBarang/$1');
+    // signatue
+    $routes->get('list-signature', 'SignatureController::listSignature');
+    $routes->post('signature', 'SignatureController::signatureNote');
+    // tumpukan
+    $routes->get('list-tumpukan', 'TumpukanController::listTumpukan');
+    $routes->post('createTumpukan', 'TumpukanController::createTumpukan');
 });
 
+// $routes->get('/api/tumpukan', 'TumpukanController::listTumpukan', ['filter' => 'auth']);
 
 
 
-// tumpukan
-$routes->get('/api/tumpukan', 'TumpukanController::listTumpukan', ['filter' => 'auth']);
-$routes->post('/api/tumpukan', 'TumpukanController::createTumpukan', ['filter' => 'auth']);
 
-// signatue
-$routes->get('/api/signature', 'SignatureController::listSignature', ['filter' => 'auth']);
-$routes->post('/api/signature', 'SignatureController::signatureNote', ['filter' => 'auth']);
 
 
 /*

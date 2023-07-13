@@ -13,7 +13,7 @@ class SignatureModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['name', 'signature'];
+    protected $allowedFields    = ['name', 'signature', 'id_note'];
 
     // Dates
     protected $useTimestamps = false;

@@ -22,10 +22,15 @@ class Signature extends Migration
             'signature'      => [
                 'type'           => 'VARCHAR',
                 'constraint'     => '50',
-            ]
+            ],
+            'id_note'      => [
+                'type'           => 'INT',
+                'constraint'     => '11',
+            ],
         ]);
         $this->forge->addKey('id', TRUE);
         $this->forge->createTable('signatures');
+        $this->forge->addForeignKey('id_note', 'notes', 'id');
     }
 
     public function down()

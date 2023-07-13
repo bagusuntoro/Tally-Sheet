@@ -42,7 +42,11 @@ class Login extends BaseController
         ];
 
         $token = JWT::encode($payload, $key, "HS256");
-
-        return $this->respond(['status' => true, 'token' => $token], 200);
+        
+        $role = [
+            'role' => $user['role']
+        ];
+        return $this->respond(['status' => true, 'role' => $user['role'], 'token' => $token], 200);
+        // return $this->respond($user['role']);
     }
 }
